@@ -123,7 +123,15 @@ function merge(arr1, arr2){
 function mergeSort(arr) {
     if(arr.length <= 1) return arr;
 
-    
+    let mid = Math.floor(arr.length / 2),
+        leftSide = mergeSort(arr.slice(0, mid)),
+        rightSide = mergeSort(arr.slice(mid));
+
+    return merge(leftSide, rightSide);
 }
 
 // merge([2, 14, 99, 100, 110, 120], [1, 10, 50, 60, 90, 130]);
+
+const mergeSortedArr = mergeSort([2, 1, 30, 20, 10, 90, 60, 1]);
+
+console.log(mergeSortedArr);
